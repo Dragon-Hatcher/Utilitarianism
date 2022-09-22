@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let utility = 58;
+	export let utility: number;
 </script>
 
 <div>

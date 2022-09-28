@@ -6,7 +6,7 @@
 
 <div>
 	<span class:pos={utility > 0} class:neg={utility < 0}>
-		<span class="number">{nFormatter(utility, 1)}</span> Utilitrons / Year
+		<span class="number">{nFormatter(utility, 1)}</span> Utilitrons Annually
 	</span>
 </div>
 
@@ -17,14 +17,14 @@
 		align-items: center;
 		justify-content: center;
 
-		font-size: 64px;
+		font-size: 32px;
 		font-weight: bold;
 
-		padding: 48px;
+		padding: 20px;
 	}
 
 	.number {
-		font-size: 128px;
+		font-size: 64px;
 	}
 
 	.pos {

@@ -1,6 +1,10 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
 
+	const MAX = 6;
+
+	export let num: number;
+
 	let dispatch = createEventDispatcher();
 
 	function handleKey(e: KeyboardEvent) {
@@ -16,8 +20,12 @@
 
 <svelte:window on:keydown={handleKey} />
 
-<button class="left" on:click={() => dispatch('left')}> {'<'} Previous</button>
-<button class="right" on:click={() => dispatch('right')}> Next {'>'}</button>
+{#if num != 0}
+	<button class="left" on:click={() => dispatch('left')}> {'<'} Previous</button>
+{/if}
+{#if num != MAX}
+	<button class="right" on:click={() => dispatch('right')}> Next {'>'}</button>
+{/if}
 
 <style>
 	button {

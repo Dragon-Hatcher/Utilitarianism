@@ -1,10 +1,12 @@
 <script lang="ts">
+	import { nFormatter } from "./format";
+
 	export let utility: number;
 </script>
 
 <div>
 	<span class:pos={utility > 0} class:neg={utility < 0}>
-		<span class="number">{utility}</span> Utilitrons
+		<span class="number">{nFormatter(utility, 1)}</span> Utilitrons / Year
 	</span>
 </div>
 
@@ -17,7 +19,6 @@
 
 		font-size: 64px;
 		font-weight: bold;
-		font-family: Arial, Helvetica, sans-serif;
 
 		padding: 48px;
 	}

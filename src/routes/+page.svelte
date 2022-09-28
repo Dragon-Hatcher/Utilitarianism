@@ -1,24 +1,37 @@
 <script lang="ts">
 	import Buttons from './Buttons.svelte';
 	import Counter from './Counter.svelte';
+	import Explanations from './Explanations.svelte';
 	import UtilityTable from './UtilityTable.svelte';
 
+    const MAX = 3;
+
 	let utility = 50;
+	let num = 0;
 </script>
 
 <div class="wrap">
-	<UtilityTable />
+	<UtilityTable {num} bind:utility/>
 
-	<Counter utility={utility ?? 0} />
+	<Explanations bind:num {utility} />
 
-	<input type="range" min="-100" max="100" bind:value={utility} />
-
-	<Buttons on:left={() => console.log('left')} on:right={() => console.log('right')} />
+	<Buttons
+		on:left={() => {
+			if (num != 0) num--;
+		}}
+		on:right={() => {
+			if (num != MAX) num++;
+		}}
+	/>
 </div>
 
 <style>
 	.wrap {
 		max-width: 1400px;
 		margin: 0 auto;
+	}
+
+	:global(*) {
+		font-family: Arial, Helvetica, sans-serif;
 	}
 </style>
